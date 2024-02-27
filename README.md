@@ -1,4 +1,4 @@
-# project_complete
+# project
 
 ## Project setup
 ```

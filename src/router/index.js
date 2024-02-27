@@ -1,25 +1,27 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import InicioView from '../views/InicioView.vue'
+import Comp01View from '../views/Comp01View.vue'
 
 const routes = [
-  {
+  
+  { //Este primer elemento siempre va tal cual aparece aquí, sólo cambiamos en 'component:'
+    //el nombre del componente de ../views que se cargará como página de inicio
     path: '/',
     name: 'home',
-    component: HomeView
+    component: InicioView
   },
+
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-]
+    path: '/Comp01View',
+    name: 'Comp01View',
+    component: Comp01View
+  },
+
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
-})
+});
 
-export default router
+export default router;

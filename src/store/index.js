@@ -1,14 +1,27 @@
-import { createStore } from 'vuex'
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-export default createStore({
-  state: {
+export default new Vuex.Store({
+  state: {  //Variables que serán pasadas entre los componentes
+    miVariable:'VALOR UNO',
+    Persona: {
+      nombre:'',
+      apellido:'',
+      edad:null,
+      tel:'',
+      codigo:'',
+    },
   },
-  getters: {
+  mutations: {  //Funciones para cambiar el valor de las variables
+    actualizarMiVariable(state, nuevoValor) {
+      state.miVariable = nuevoValor;
+    },
+
   },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
+  actions: {  //Funciones para realizar acciones asincronas y llamar a mutaciones
+    actualizarMiVariable({ commit }, nuevoValor) {
+      commit('actualizarMiVariable', nuevoValor);
+    },
+    
   }
 })

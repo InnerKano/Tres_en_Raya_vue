@@ -1,18 +1,16 @@
 <!-- COMPONENTE 1: FUNCIONAMIENTO JUEGO -->
 <template>
-    <div id="grid_game">
-      <button id="C1" @click="makeMove(0)">{{ cells[0] }}</button>
-      <button id="C2" @click="makeMove(1)">{{ cells[1] }}</button>
-      <button id="C3" @click="makeMove(2)">{{ cells[2] }}</button>
-  
-      <button id="C4" @click="makeMove(3)">{{ cells[3] }}</button>
-      <button id="C5" @click="makeMove(4)">{{ cells[4] }}</button>
-      <button id="C6" @click="makeMove(5)">{{ cells[5] }}</button>
-  
-      <button id="C7" @click="makeMove(6)">{{ cells[6] }}</button>
-      <button id="C8" @click="makeMove(7)">{{ cells[7] }}</button>
-      <button id="C9" @click="makeMove(8)">{{ cells[8] }}</button>
-
+    <div id="grid_game" class="text-primary">
+        <button id="C1" class="btn-custom" @click="makeMove(0)">{{ cells[0] }}</button>
+        <button id="C2" class="btn-custom" @click="makeMove(1)">{{ cells[1] }}</button>
+        <button id="C3" class="btn-custom" @click="makeMove(2)">{{ cells[2] }}</button>
+        <button id="C4" class="btn-custom" @click="makeMove(3)">{{ cells[3] }}</button>
+        <button id="C5" class="btn-custom" @click="makeMove(4)">{{ cells[4] }}</button>
+        <button id="C6" class="btn-custom" @click="makeMove(5)">{{ cells[5] }}</button>
+        <button id="C7" class="btn-custom" @click="makeMove(6)">{{ cells[6] }}</button>
+        <button id="C8" class="btn-custom" @click="makeMove(7)">{{ cells[7] }}</button>
+        <button id="C9" class="btn-custom" @click="makeMove(8)">{{ cells[8] }}</button>
+                
         <!-- Alerta de ganador -->
         <div v-if="winner" class="alert alert-primary" role="alert">
             ¡{{ winner }} ha ganado!
@@ -95,7 +93,8 @@ export default {
         grid-template-areas:                       
             "C1 C2 C3"
             "C4 C5 C6"
-            "C7 C8 C9";
+            "C7 C8 C9"
+            "AL AL AL";
     }
     /* BORDES  DE LAS CELDAS */
 
@@ -105,34 +104,34 @@ export default {
     }
     #C2 {
         grid-area: C2;
-        border-left: solid;
-        border-right: solid;
+        border-left: 10px solid blueviolet;
+        border-right: 10px solid blueviolet;
     }
     #C3 {
         grid-area: C3;
     }
     #C4 {
         grid-area: C4;
-        border-top: solid;
-        border-bottom: solid;
+        border-top: 10px solid blueviolet;
+        border-bottom: 10px solid  blueviolet;
         
     }
     #C5 {
         grid-area: C5;
-        border: solid;
+        border: 10px solid blueviolet;
     }
     #C6 {
         grid-area: C6;
-        border-top: solid;
-        border-bottom: solid;
+        border-top: 10px solid blueviolet;
+        border-bottom: 10px solid blueviolet;
     }
     #C7 {
         grid-area: C7;
     }
     #C8 {
         grid-area: C8;
-        border-left: solid;
-        border-right: solid;
+        border-left: 10px solid blueviolet;
+        border-right: 10px solid  blueviolet;
     }
     #C9 {
         grid-area: C9;
@@ -141,6 +140,36 @@ export default {
     h2{
         grid-area: H2;
     }
+    /* Botones X y O */
+    .btn-custom {
+        /* Cambiar la fuente */
+        font-family: "Henny Penny", cursive;
+        /* Cambiar el tamaño de la fuente */
+        text-shadow: -1px -1px 0px #0042889f,
+            1px 1px 1px #004b9b9f,
+            0.5px 0.5px 0px #00000055;
+        font-size: 170%;
+        /* Cambiar el color del texto */
+        color: #ffffffc7;
+        /* Cambiar el color de fondo */
+        background-color: #007bff9f;
+        /* Añadir bordes redondeados */
+        border-radius: 5px;
+        /* Cambiar el espaciado alrededor del texto */
+        padding: 10px 20px;
+
+        /* Transición suave al pasar el ratón */
+        transition: all 0.3s ease;
+        font-weight: bold;
+        text-align: center;
+    }
+    .btn-custom:focus {
+        /* Quitar el contorno al enfocar */
+        outline: none;
+        /* Agregar sombra al enfocar */
+        box-shadow: 0 0 0 0.2rem rgba(0, 47, 255, 0.25);
+    }
+
     button {
         background-color: #ff000000;
         border: none;
@@ -155,12 +184,21 @@ export default {
     }
 
     button:hover {
-        background-color: #002fb180;
+        background-color: #0030b4ce;
         border-radius: 10%;
     }
 
     button:focus {
         outline: none;
+    }
+
+    .alert {
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 5px;
+        font-size: 18px;
+        grid-area: AL;
+        text-align: center;
     }
 
 </style>

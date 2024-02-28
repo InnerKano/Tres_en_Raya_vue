@@ -10,15 +10,16 @@
     <!-- Nav componente de bootstrap -->
     <nav id="menu_principal" class="navbar navbar-expand-lg p-2 m-0 bg-body-primary" data-bs-theme="light">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+<!--         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>
+        </button> -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
+<!--             <li class="nav-item">
               <router-link to="/" class="nav-link" aria-current="page">INICIO</router-link>
             </li>
-
+ -->
           </ul>
         </div>
       </div>
@@ -33,7 +34,7 @@
       <address><a href="mailto: contacto@gmail.com">kevin.cano@utp.edu.co</a></address>
       <small>&copy; Derechos Reservados 2024</small>
       <br><br>
-      <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Licencia Creative Commons" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"/></a>
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Licencia Creative Commons" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"/></a>
       <br>
       <small>
         <br>se distribuye bajo una<br> 
@@ -142,7 +143,7 @@
   }
 
   address a {
-    color: lightskyblue;
+    color: rgb(137, 135, 250);
     text-decoration: none;
     font-weight: 600;
   }

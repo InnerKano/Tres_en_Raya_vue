@@ -29,6 +29,7 @@
     font-size: 25pt;
     text-align: center;
     font-weight: bolder;
+    font-family: "Henny Penny", cursive;
 }
 
 </style>

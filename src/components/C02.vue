@@ -95,9 +95,6 @@ export default {
             "C4 C5 C6"
             "C7 C8 C9"
             "AL AL AL";
-        align-items: center;
-        justify-items: center;
-        text-align: center;
     }
     /* BORDES  DE LAS CELDAS */
 
@@ -165,17 +162,25 @@ export default {
         transition: all 0.3s ease;
         font-weight: bold;
         text-align: center;
-        margin: 5px;
-        min-width: 80px; /* Establece un ancho mínimo */
-        min-height: 100px; /* Establece un alto mínimo */
-        width: 100%; /* Ancho preestablecido */
-        height: 100%; /* Alto preestablecido */ 
     }
     .btn-custom:focus {
         /* Quitar el contorno al enfocar */
         outline: none;
         /* Agregar sombra al enfocar */
         box-shadow: 0 0 0 0.2rem rgba(0, 47, 255, 0.25);
+    }
+
+    button {
+        background-color: #ff000000;
+        border: none;
+        cursor: pointer;
+        width: 100%; /* Ancho preestablecido */
+        height: 100%; /* Alto preestablecido */
+        min-width: 50px; /* Establece un ancho mínimo */
+        min-height: 70px; /* Establece un alto mínimo */
+        font-size: 75%; /* Tamaño de fuente */
+        transition: background-color 0.3s ease;
+        
     }
 
     button:hover {

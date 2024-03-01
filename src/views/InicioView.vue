@@ -3,7 +3,8 @@
         <h2 id="h2c0">GAME</h2>        
         <br><br>    
         <main>
-            <Comp01View/>
+            <div> <Comp01View/> </div>
+            <div> <Comp02View/> </div>
         </main> 
     </div>
 </template>
@@ -13,7 +14,7 @@
     export default {
         
         components: {
-            Comp01View
+            Comp01View,
         },
 
     };

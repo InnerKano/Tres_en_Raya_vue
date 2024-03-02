@@ -1,6 +1,8 @@
 <!-- COMPONENTE 1: FUNCIONAMIENTO JUEGO -->
+
 <template>
     <div id="grid_game" class="text-primary">
+        <!-- Botones para cada celda del juego -->
         <button id="C1" class="btn-custom" @click="makeMove(0)">{{ cells[0] }}</button>
         <button id="C2" class="btn-custom" @click="makeMove(1)">{{ cells[1] }}</button>
         <button id="C3" class="btn-custom" @click="makeMove(2)">{{ cells[2] }}</button>
@@ -21,7 +23,6 @@
             ¡Empate!
         </div>
     </div>
-    
 </template>
 
 <script>
@@ -29,46 +30,63 @@ import { reactive, ref } from 'vue';
 
 export default {
     setup() {
+        // Declaración de variables reactivas
         const cells = reactive(["", "", "", "", "", "", "", "", ""]);
         let currentPlayer = "X"; // Jugador actual (puede ser "X" o "O")
         let gameOver = false; // Indica si el juego ha terminado
-        const winner = ref("");
-        const tie = ref(false);
+        const winner = ref(""); // Referencia para almacenar al ganador
+        const tie = ref(false); // Referencia para indicar empate
 
+        // Función para realizar una jugada
         const makeMove = (index) => {
-        if (!winner.value && !tie.value && cells[index] === "") {
-            cells[index] = currentPlayer;
-            checkWinner();
-            currentPlayer = currentPlayer === "X" ? "O" : "X";
-        }
+            // Verifica si el juego aún no ha terminado y la celda está vacía
+            if (!winner.value && !tie.value && cells[index] === "") {
+                cells[index] = currentPlayer; // Asigna el jugador actual a la celda
+                checkWinner(); // Verifica si hay un ganador
+                currentPlayer = currentPlayer === "X" ? "O" : "X"; // Cambia de jugador
+            }
         };
 
+        // Función para verificar si hay un ganador
         const checkWinner = () => {
+            // Patrones de victoria en el juego
             const winPatterns = [
                 [0, 1, 2], [3, 4, 5], [6, 7, 8], // Filas
                 [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columnas
                 [0, 4, 8], [2, 4, 6] // Diagonales
             ];
+            // Itera sobre los patrones de victoria
             for (let pattern of winPatterns) {
                 const [a, b, c] = pattern;
-                if (
-                cells[a] &&
-                cells[a] === cells[b] &&
-                cells[a] === cells[c]
-                ) {
-                winner.value = cells[a];
-                return;
+                // Verifica si las celdas en el patrón son iguales y no están vacías
+                if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
+                    winner.value = cells[a]; // Establece al ganador
+                    return;
                 }
             }
+            // Si no hay ganador y todas las celdas están llenas, se declara empate
             if (!cells.includes("")) {
                 tie.value = true;
             }
         };
+        const reset = () => {
+            // Reinicia todas las celdas y las variables relacionadas con el juego
+            cells.forEach((cell, index) => {
+                cells[index] = "";
+            });
+            winner.value = "";
+            tie.value = false;
+            currentPlayer = "X"; // Reinicia el jugador actual
+        };
 
-        return { cells, makeMove, winner, tie };
+        // Retorna las variables y funciones para ser usadas en el template
+        return { cells, makeMove, winner, tie, reset };
     }
+
+
 };
 </script>
+
 
 <style>
     .alert {
@@ -170,6 +188,7 @@ export default {
         min-height: 100px; /* Establece un alto mínimo */
         width: 100%; /* Ancho preestablecido */
         height: 100%; /* Alto preestablecido */ 
+        border-style: none;
     }
     .btn-custom:focus {
         /* Quitar el contorno al enfocar */

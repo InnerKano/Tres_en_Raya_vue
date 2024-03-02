@@ -4,7 +4,6 @@
         <br><br>    
         <main>
             <div> <Comp01View/> </div>
-            <div> <Comp02View/> </div>
         </main> 
     </div>
 </template>
